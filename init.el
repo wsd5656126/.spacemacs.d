@@ -142,7 +142,7 @@ values."
                                :size 18
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.2)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -324,7 +324,7 @@ you should place your code here."
     (set-fontset-font (frame-parameter nil 'font)
                       charset (font-spec :family "文泉驿等宽微米黑"
                                          :size 18
-                                         :powerline-scale 1.1)))
+                                         :powerline-scale 1.3)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
