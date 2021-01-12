@@ -143,7 +143,7 @@ values."
                                :size 18
                                :weight normal
                                :width normal
-                               :powerline-scale 1.2)
+                               :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -312,6 +312,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   )
+(defun set-bigger-spacing()
+  (setq-local default-text-properties '(line-spacing 0.0 line-height 1.20)))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -326,6 +328,8 @@ you should place your code here."
                       charset (font-spec :family "文泉驿等宽微米黑"
                                          :size 18
                                          :powerline-scale 1.3)))
+  (add-hook 'text-mode-hook 'set-bigger-spacing)
+  (add-hook 'prog-mode-hook 'set-bigger-spacing)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
