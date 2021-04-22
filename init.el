@@ -101,7 +101,8 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'vim
+   ;; dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -127,19 +128,19 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
+                         spacemacs-dark
                          jetbrains-darcula
                          atom-one-dark
-                         darcula
                          monokai
-                         spacemacs-dark
+                         darcula
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '(
-                               ;; "Consolas"
-                               "JetBrainsMono"
+                               "Consolas"
+                               ;; "JetBrainsMono"
                                :size 18
                                :weight normal
                                :width normal
@@ -314,6 +315,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
   )
 (defun set-bigger-spacing()
   (setq-local default-text-properties '(line-spacing 0.0 line-height 1.20)))
+(defun foo()
+  (interactive)
+  (execute-kbd-macro (kbd "<escape>"))
+  (execute-kbd-macro (kbd "A"))
+  (xscheme-send-previous-expression)
+  (execute-kbd-macro (kbd "<escape>"))
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -322,12 +330,13 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (global-set-key (kbd "<f7>") 'foo)
   (global-company-mode)
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset (font-spec :family "文泉驿等宽微米黑"
-                                         :size 18
-                                         :powerline-scale 1.3)))
+  ;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    ;; (set-fontset-font (frame-parameter nil 'font)
+                      ;; charset (font-spec :family "文泉驿等宽微米黑"
+                                         ;; :size 18
+                                         ;; :powerline-scale 1.3)))
   (add-hook 'text-mode-hook 'set-bigger-spacing)
   (add-hook 'prog-mode-hook 'set-bigger-spacing)
   )
@@ -351,3 +360,4 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(require 'xscheme)
