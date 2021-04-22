@@ -322,6 +322,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (xscheme-send-previous-expression)
   (execute-kbd-macro (kbd "<escape>"))
   )
+(defun open-scheme()
+  (interactive)
+  (execute-kbd-macro (kbd "C-X 2"))
+  (execute-kbd-macro (kbd "C-X o"))
+  (run-scheme '--large)
+  (execute-kbd-macro (kbd "C-X o"))
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -331,6 +338,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (global-set-key (kbd "<f7>") 'foo)
+  (global-set-key (kbd "<f8>") 'open-scheme)
   (global-company-mode)
   ;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
     ;; (set-fontset-font (frame-parameter nil 'font)
