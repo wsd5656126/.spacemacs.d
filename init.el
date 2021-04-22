@@ -326,7 +326,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (interactive)
   (execute-kbd-macro (kbd "C-X 2"))
   (execute-kbd-macro (kbd "C-X o"))
-  (run-scheme '--large)
+  (run-scheme "scheme")
   (execute-kbd-macro (kbd "C-X o"))
   )
 
