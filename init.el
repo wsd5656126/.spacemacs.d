@@ -337,6 +337,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (electric-pair-mode -1)
   (global-set-key (kbd "<f7>") 'foo)
   (global-set-key (kbd "<f8>") 'open-scheme)
   (global-company-mode)
@@ -347,6 +348,7 @@ you should place your code here."
                                          ;; :powerline-scale 1.3)))
   (add-hook 'text-mode-hook 'set-bigger-spacing)
   (add-hook 'prog-mode-hook 'set-bigger-spacing)
+  (add-hook 'scheme-mode-hook 'spacemacs/toggle-smartparens)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
