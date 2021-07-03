@@ -36,7 +36,7 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
+    helm
      auto-completion
      better-defaults
      emacs-lisp
@@ -348,7 +348,9 @@ you should place your code here."
                                          ;; :powerline-scale 1.3)))
   (add-hook 'text-mode-hook 'set-bigger-spacing)
   (add-hook 'prog-mode-hook 'set-bigger-spacing)
-  (add-hook 'scheme-mode-hook 'spacemacs/toggle-smartparens)
+  (add-hook 'org-mode-hook (lambda()
+                             (spacemacs/toggle-truncate-lines)))
+  ;; (add-hook 'scheme-mode-hook 'spacemacs/toggle-smartparens)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
